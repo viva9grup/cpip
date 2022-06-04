@@ -49,3 +49,4 @@ curl  https://api.zerossl.com/certificates/${ID}/download?access_key=$ZEROSSL_KE
 unzip certificate.zip
 cat certificate.crt ca_bundle.crt > fullcert.pem
 rm -r ./$IP_CERT.resp ./status.resp
+rm -r {certificate.zip,ca_bundle.crt,certificate.crt,ecparam.pem}
