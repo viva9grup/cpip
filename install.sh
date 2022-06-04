@@ -22,9 +22,9 @@ apt update \
 && sed -i 's/RANDFILE.*ENV.*//g' /etc/ssl/openssl.cnf \
 && wget -q https://raw.githubusercontent.com/viva9grup/cpip/main/create-csr.sh -O /etc/nginx/ssl/create-csr.sh \
 && bash /etc/nginx/ssl/create-csr.sh \
-&& rm default \
+&& rm /etc/nginx/conf.d/default \
 && wget -q https://raw.githubusercontent.com/viva9grup/cpip/main/ips.conf -O /etc/nginx/conf.d/$IPV4.conf \
-&& wget https://raw.githubusercontent.com/viva9grup/cpip/main/robots.txt -O /var/www/html/robots.txt \
+&& wget -q https://raw.githubusercontent.com/viva9grup/cpip/main/robots.txt -O /var/www/html/robots.txt \
 && sed -i "s/#BACKEND/${BACKEND}/g" /etc/nginx/conf.d/$IPV4.conf \
 && sed -i "s/#PORT/${PORT}/g" /etc/nginx/conf.d/$IPV4.conf \
 && sed -i "s/#IP/${IPV4}/g" /etc/nginx/conf.d/$IPV4.conf \
